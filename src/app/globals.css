@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: var(--font-be-vietnam), system-ui, sans-serif;
+  --font-display: var(--font-be-vietnam), system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-slate-50 text-slate-800 antialiased;
+    font-feature-settings: "cv11", "ss01";
+  }
+  h1, h2, h3, h4 {
+    @apply font-display tracking-tight text-slate-900;
+  }
+  ::selection {
+    @apply bg-brand-600 text-white;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl font-semibold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60;
+  }
+  .btn-primary {
+    @apply btn bg-brand-700 px-5 py-3 text-white shadow-soft hover:bg-brand-800 hover:shadow-card-hover focus-visible:ring-brand-500 active:scale-[0.98];
+  }
+  .btn-accent {
+    @apply btn bg-accent-500 px-5 py-3 text-white shadow-soft hover:bg-accent-600 focus-visible:ring-accent-400 active:scale-[0.98];
+  }
+  .btn-outline {
+    @apply btn border border-slate-300 bg-white px-5 py-3 text-slate-700 hover:border-brand-400 hover:text-brand-700 focus-visible:ring-brand-400;
+  }
+  .btn-ghost {
+    @apply btn px-4 py-2 text-slate-600 hover:bg-slate-100 hover:text-slate-900;
+  }
+  .card {
+    @apply rounded-2xl border border-slate-200/80 bg-white shadow-card;
+  }
+  .input-field {
+    @apply w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 placeholder:text-slate-400 transition focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/20;
+  }
+  .label-field {
+    @apply mb-1.5 block text-sm font-medium text-slate-700;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .bg-hero-grid {
+    background-image:
+      linear-gradient(to right, rgb(255 255 255 / 0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(255 255 255 / 0.06) 1px, transparent 1px);
+    background-size: 44px 44px;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
