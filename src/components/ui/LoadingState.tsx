@@ -47,6 +47,23 @@ export function TripCardSkeleton() {
   );
 }
 
+// Full loading view: a short label plus a stack of trip skeletons.
+export function LoadingState({ label }: { label?: string }) {
+  return (
+    <div className="space-y-4">
+      {label && (
+        <p className="flex items-center gap-2 text-sm text-slate-500">
+          <Spinner className="h-4 w-4 text-brand-600" />
+          {label}
+        </p>
+      )}
+      {[0, 1, 2].map((i) => (
+        <TripCardSkeleton key={i} />
+      ))}
+    </div>
+  );
+}
+
 // Inline spinner for buttons / small areas.
 export function Spinner({ className }: { className?: string }) {
   return (
