@@ -12,7 +12,7 @@ import {
   type SortKey,
 } from "@/lib/mock-api";
 import { saveSearch } from "@/lib/booking-store";
-import { formatDateVI } from "@/lib/format";
+import { formatDateVI, toDateInputValue } from "@/lib/format";
 import { SearchBox } from "./SearchBox";
 import { TripCard } from "./TripCard";
 import { FilterSidebar } from "./FilterSidebar";
@@ -23,9 +23,10 @@ import { LoadingState } from "@/components/ui/LoadingState";
 // Reads search params from the URL, applies filters/sort, renders results.
 export function SearchResults() {
   const params = useSearchParams();
+  const today = useMemo(() => toDateInputValue(new Date()), []);
   const fromCityId = params.get("from") ?? "sgn";
   const toCityId = params.get("to") ?? "dlt";
-  const date = params.get("date") ?? "";
+  const date = params.get("date") || today;
   const passengers = Number(params.get("passengers") ?? "1");
 
   const [filters, setFilters] = useState<TripFilters>({});

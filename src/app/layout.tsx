@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Be_Vietnam_Pro } from "next/font/google";
 import { Toaster } from "react-hot-toast";
 import { SiteChrome } from "@/components/layout/SiteChrome";
@@ -22,6 +22,12 @@ export const metadata: Metadata = {
     "limousine",
     "EasyTrip",
   ],
+};
+
+export const viewport: Viewport = {
+  themeColor: "#1d4ed8",
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({
