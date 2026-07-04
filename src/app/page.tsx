@@ -1,8 +1,23 @@
+import { Hero } from "@/components/home/Hero";
+import { PopularRoutes } from "@/components/home/PopularRoutes";
+import { FeaturedOperators } from "@/components/home/FeaturedOperators";
+import { WhyUs } from "@/components/home/WhyUs";
+import { BookingSteps } from "@/components/home/BookingSteps";
+import { PromoBanner } from "@/components/home/PromoBanner";
+import { Reviews } from "@/components/home/Reviews";
+import { FAQ } from "@/components/home/FAQ";
+
 export default function HomePage() {
   return (
-    <div className="container-page py-24">
-      <h1 className="text-3xl font-bold">EasyTrip</h1>
-      <p className="mt-2 text-slate-600">Đang xây dựng trang chủ…</p>
-    </div>
+    <>
+      <Hero />
+      <PopularRoutes />
+      <WhyUs />
+      <BookingSteps />
+      <FeaturedOperators />
+      <PromoBanner />
+      <Reviews />
+      <FAQ />
+    </>
   );
 }
